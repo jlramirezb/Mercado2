@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras Diarias del Mercado</title>
+    
+  <link rel="stylesheet" href="/assets/index-37edee2a.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Compras Diarias del Mercado</h1>
+        <div id="exchange-rate-form">
+            <label for="exchange-rate">Tipo de cambio (VES por 1 USD):</label>
+            <input type="number" id="exchange-rate" step="0.01" required>
+            <button id="set-exchange-rate">Establecer</button>
+        </div>
+        <div id="item-form" style="display: none;">
+            <h2>Agregar artículo</h2>
+            <div class="form-group">
+                <select id="item-select">
+                    <option value="">Seleccionar artículo</option>
+                </select>
+                <button id="show-new-item-form">Agregar nuevo artículo</button>
+            </div>
+            <div id="new-item-form" style="display: none;">
+                <input type="text" id="new-item-name" placeholder="Nombre del nuevo artículo">
+                <select id="new-item-type">
+                    <option value="unit">Por unidad</option>
+                    <option value="weight">Por peso</option>
+                </select>
+                <button id="add-new-item">Guardar nuevo artículo</button>
+            </div>
+            <div class="form-group">
+                <select id="item-type">
+                    <option value="unit">Por unidad</option>
+                    <option value="weight">Por peso</option>
+                </select>
+                <input type="number" id="item-quantity" placeholder="Cantidad/Peso" step="0.01" required>
+                <select id="item-unit" style="display: none;">
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="lb">lb</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" id="item-price" placeholder="Precio" step="0.01" required>
+                <select id="item-currency">
+                    <option value="USD">USD</option>
+                    <option value="VES">VES</option>
+                </select>
+            </div>
+            <button id="add-item">Agregar a la lista</button>
+        </div>
+        <div id="item-list">
+            <h2>Lista de compras</h2>
+            <div class="table-container">
+                <table id="items-table">
+                    <thead>
+                        <tr>
+                            <th>Artículo</th>
+                            <th>Cantidad/Peso</th>
+                            <th>Precio (VES)</th>
+                            <th>Precio (USD)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="total">
+            <h2>Total</h2>
+            <p>En VES: <span id="total-ves">0.00</span></p>
+            <p>En USD: <span id="total-usd">0.00</span></p>
+        </div>
+        <button id="save-list">Guardar Lista</button>
+        <button id="load-list">Cargar Lista</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
